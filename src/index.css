@@ -28,3 +28,12 @@ code {
   gap: 50px; /* Düğmeler arasındaki boşluğu ayarla */
   margin-top: 10px; /* İstenilen boşluğu yukarıda ayarla */
 }
+
+.inputClass {
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 40px;
+  /*display: flex;
+  justify-content: space-between;
+  align-items: center;*/
+}

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function TodoInput() {
-  const [tasks, setTasks] = useState([]);
+function TodoInput({ tasks, setTasks }) {
   const [newTask, setNewTask] = useState('');
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editedText, setEditedText] = useState('');
@@ -11,37 +10,6 @@ function TodoInput() {
     if (newTask.trim() !== '') {
       setTasks([...tasks, { text: newTask, completed: false }]);
       setNewTask('');
-    }
-  };
-
-  const toggleTask = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index].completed = !updatedTasks[index].completed;
-    setTasks(updatedTasks);
-  };
-
-  const deleteTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-  };
-
-  const startEditing = (index, text) => {
-    setEditingIndex(index);
-    setEditedText(text);
-  };
-
-  const cancelEditing = () => {
-    setEditingIndex(-1);
-    setEditedText('');
-  };
-
-  const saveEditedTask = (index) => {
-    if (editedText.trim() !== '') {
-      const updatedTasks = [...tasks];
-      updatedTasks[index].text = editedText;
-      setTasks(updatedTasks);
-      setEditingIndex(-1);
-      setEditedText('');
     }
   };
 
@@ -54,27 +22,6 @@ function TodoInput() {
           Add New Task
         </button>
       </div>
-
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {editingIndex === index ? (
-              <>
-                <input type='text' value={editedText} onChange={(e) => setEditedText(e.target.value)} />
-                <button onClick={() => saveEditedTask(index)}>Save</button>
-                <button onClick={cancelEditing}>Cancel</button>
-              </>
-            ) : (
-              <>
-                <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.text}</span>
-                <input type='checkbox' checked={task.completed} onChange={() => toggleTask(index)} />
-                <button onClick={() => startEditing(index, task.text)}>Edit</button>
-                <button onClick={() => deleteTask(index)}>Delete</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

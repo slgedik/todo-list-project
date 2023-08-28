@@ -1,13 +1,30 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.todoInput {
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 120px;
+}
+
+.todoInput input,
+.todoInput button {
+  width: 95%;
+  height: 40px;
+}
+
+.todo-menu {
+  display: flex;
+  justify-content: center; /* Yatayda ortala */
+  gap: 50px; /* Düğmeler arasındaki boşluğu ayarla */
+  margin-top: 10px; /* İstenilen boşluğu yukarıda ayarla */
 }
